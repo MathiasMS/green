@@ -66,7 +66,7 @@ const TimeSelector = ({
     <View className="w-32">
       <Pressable
         onPress={() => setIsModalVisible(true)}
-        className="border rounded-lg p-3 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800"
+        className="border rounded-lg p-3 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900"
       >
         <Text className="text-gray-900 dark:text-white">{value}</Text>
       </Pressable>
@@ -78,7 +78,7 @@ const TimeSelector = ({
         onRequestClose={() => setIsModalVisible(false)}
       >
         <View className="flex-1 justify-end bg-black/50">
-          <View className="bg-white dark:bg-gray-800 rounded-t-xl p-4 max-h-[60%]">
+          <View className="bg-white dark:bg-gray-900 rounded-t-xl p-4 max-h-[60%]">
             <Text className="text-lg font-semibold mb-4 text-gray-900 dark:text-white">
               Seleccionar hora
             </Text>
@@ -92,7 +92,7 @@ const TimeSelector = ({
                     setIsModalVisible(false);
                   }}
                   className={`p-3 ${
-                    value === item ? 'bg-sky-100 dark:bg-sky-900' : 'bg-white dark:bg-gray-800'
+                    value === item ? 'bg-sky-100 dark:bg-sky-900' : 'bg-white dark:bg-gray-900'
                   }`}
                 >
                   <Text

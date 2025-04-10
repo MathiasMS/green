@@ -1,3 +1,5 @@
+import { SelectItem } from '../components/ui/AppSelect';
+
 export const argentinaStates = [
   'Capital Federal',
   'Buenos Aires',
@@ -26,3 +28,8 @@ export const argentinaStates = [
 ] as const;
 
 export type ArgentinaState = (typeof argentinaStates)[number];
+
+export const argentinaStatesOptions: SelectItem[] = argentinaStates.map(state => ({
+  label: state,
+  value: state,
+}));

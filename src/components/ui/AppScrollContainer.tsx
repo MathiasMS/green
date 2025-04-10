@@ -11,8 +11,9 @@ const AppScrollContainer = ({
 }) => {
   return (
     <ScrollView
-      className={`flex-1 p-5 bg-white dark:bg-gray-800 ${className}`}
+      className={`flex-1 p-5 bg-white dark:bg-gray-900 ${className}`}
       keyboardShouldPersistTaps={keyboardShouldPersistTaps}
+      keyboardDismissMode="on-drag"
     >
       {children}
     </ScrollView>

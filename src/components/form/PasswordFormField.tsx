@@ -2,6 +2,7 @@ import { TextInput, View, Text, TouchableOpacity } from 'react-native';
 import { Control, Controller, FieldValues, Path } from 'react-hook-form';
 import { useState } from 'react';
 import { Eye, EyeOff } from 'react-native-feather';
+import { AppParagraph } from '../ui';
 
 interface PasswordFormFieldProps<T extends FieldValues> {
   control: Control<T>;
@@ -39,12 +40,14 @@ const PasswordFormField = <T extends FieldValues>({
       }}
       render={({ field: { onChange, onBlur, value }, fieldState: { error } }) => (
         <View className={`mb-4 ${className}`}>
-          {label && <Text className="text-gray-700 dark:text-gray-300 mb-1">{label}</Text>}
+          {label && (
+            <AppParagraph className="text-gray-700 dark:text-gray-300 mb-1">{label}</AppParagraph>
+          )}
           <View className="relative">
             <TextInput
               className={`border rounded-lg p-3 pr-20 ${
                 error ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'
-              } bg-white dark:bg-gray-800 text-gray-900 dark:text-white`}
+              } bg-white dark:bg-gray-900 text-gray-900 dark:text-white`}
               placeholder={placeholder}
               placeholderTextColor="#9CA3AF"
               onBlur={onBlur}

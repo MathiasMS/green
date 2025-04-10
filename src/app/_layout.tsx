@@ -5,6 +5,8 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { AuthProvider } from '../providers/AuthContext';
 import { StatusBar } from 'react-native';
+import 'react-native-gesture-handler';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import 'react-native-reanimated';
 import '@/global.css';
@@ -27,18 +29,25 @@ export default function AppLayout() {
     return null;
   }
 
+  const insets = useSafeAreaInsets();
+
+  console.log(insets);
   return (
     <AuthProvider>
       <StatusBar hidden />
-      <Stack>
-        <Stack.Screen
-          name="(auth)"
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen name="(protected)" options={{ headerShown: false }} />
-      </Stack>
+      {/* <SafeAreaView style={{ flex: 0, backgroundColor: 'red' }} /> */}
+
+      <SafeAreaView className="flex-1 bg-white dark:bg-gray-900" edges={['top']}>
+        <Stack>
+          <Stack.Screen
+            name="(auth)"
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen name="(protected)" options={{ headerShown: false }} />
+        </Stack>
+      </SafeAreaView>
     </AuthProvider>
   );
 }

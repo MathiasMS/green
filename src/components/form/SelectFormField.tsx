@@ -2,6 +2,7 @@ import { View, Text, Pressable, Modal, FlatList } from 'react-native';
 import { Control, Controller, FieldValues, Path } from 'react-hook-form';
 import { useState } from 'react';
 import { Feather } from '@expo/vector-icons';
+import { AppParagraph } from '../ui';
 
 interface SelectFormFieldProps<T extends FieldValues> {
   control: Control<T>;
@@ -34,12 +35,14 @@ const SelectFormField = <T extends FieldValues>({
       }}
       render={({ field: { onChange, value }, fieldState: { error } }) => (
         <View className={`mb-4 ${className}`}>
-          {label && <Text className="text-gray-700 dark:text-gray-300 mb-1">{label}</Text>}
+          {label && (
+            <AppParagraph className="text-gray-700 dark:text-gray-300 mb-1">{label}</AppParagraph>
+          )}
           <Pressable
             onPress={() => setIsModalVisible(true)}
             className={`border rounded-lg p-3 ${
               error ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'
-            } bg-white dark:bg-gray-800 flex-row items-center`}
+            } bg-white dark:bg-gray-900 flex-row items-center`}
           >
             <Text className="text-gray-900 dark:text-white">
               {value ? options.find(opt => opt.value === value)?.label : 'Seleccionar...'}
@@ -55,7 +58,7 @@ const SelectFormField = <T extends FieldValues>({
               onPress={() => setIsModalVisible(false)}
               className="flex-1 justify-end bg-black/50"
             >
-              <View className="bg-white dark:bg-gray-800 rounded-t-xl p-4 max-h-[60%]">
+              <View className="bg-white dark:bg-gray-900 rounded-t-xl p-4 max-h-[60%]">
                 <Text className="text-lg font-semibold mb-4 text-gray-900 dark:text-white">
                   {label}
                 </Text>
@@ -71,7 +74,7 @@ const SelectFormField = <T extends FieldValues>({
                       className={`p-3 ${
                         value === item.value
                           ? 'bg-sky-100 dark:bg-sky-900'
-                          : 'bg-white dark:bg-gray-800'
+                          : 'bg-white dark:bg-gray-900'
                       }`}
                     >
                       <Text

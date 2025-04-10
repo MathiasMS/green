@@ -5,6 +5,7 @@ import DatePicker from 'react-native-ui-datepicker';
 import { format } from 'date-fns';
 import { es } from 'date-fns/locale';
 import { Feather } from '@expo/vector-icons';
+import { AppParagraph } from '../ui';
 
 interface DatepickerFormFieldProps<T extends FieldValues> {
   control: Control<T>;
@@ -39,12 +40,14 @@ const DatepickerFormField = <T extends FieldValues>({
       }}
       render={({ field: { onChange, value }, fieldState: { error } }) => (
         <View className={`mb-4 ${className}`}>
-          {label && <Text className="text-gray-700 dark:text-gray-300 mb-1">{label}</Text>}
+          {label && (
+            <AppParagraph className="text-gray-700 dark:text-gray-300 mb-1">{label}</AppParagraph>
+          )}
           <Pressable
             onPress={() => setDatePickerVisibility(true)}
             className={`border rounded-lg p-3 ${
               error ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'
-            } bg-white dark:bg-gray-800 flex-row items-center`}
+            } bg-white dark:bg-gray-900 flex-row items-center`}
           >
             <Text className="text-gray-900 dark:text-white">
               {value
@@ -62,7 +65,7 @@ const DatepickerFormField = <T extends FieldValues>({
               onPress={() => setDatePickerVisibility(false)}
               className="flex-1 justify-end bg-black/50"
             >
-              <View className="bg-white dark:bg-gray-800 rounded-t-xl p-4 max-h-[60%]">
+              <View className="bg-white dark:bg-gray-900 rounded-t-xl p-4 max-h-[60%]">
                 <DatePicker
                   classNames={{
                     day_label: 'dark:text-white',

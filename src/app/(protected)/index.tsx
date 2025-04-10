@@ -1,7 +1,7 @@
 import { Redirect } from 'expo-router';
 import { useAuth } from '@/src/hooks/useAuth';
 import { ProfileType } from '@/src/providers/AuthContext';
-import { AppActivityIndicator } from '@/src/components/ui';
+import { AppActivityIndicatorWithLayout } from '@/src/components/ui';
 
 export default function ProtectedLayout() {
   const {
@@ -9,7 +9,7 @@ export default function ProtectedLayout() {
   } = useAuth();
 
   if (isLoading) {
-    return <AppActivityIndicator />;
+    return <AppActivityIndicatorWithLayout />;
   }
 
   // If no session, redirect to auth

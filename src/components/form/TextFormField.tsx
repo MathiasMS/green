@@ -1,5 +1,6 @@
 import { TextInput, View, Text } from 'react-native';
 import { Control, Controller, FieldValues, Path } from 'react-hook-form';
+import { AppParagraph } from '../ui';
 
 interface TextFormFieldProps<T extends FieldValues> {
   control: Control<T>;
@@ -38,11 +39,13 @@ const TextFormField = <T extends FieldValues>({
       }}
       render={({ field: { onChange, onBlur, value }, fieldState: { error } }) => (
         <View className={`mb-4 ${className}`}>
-          {label && <Text className="text-gray-700 dark:text-gray-300 mb-2">{label}</Text>}
+          {label && (
+            <AppParagraph className="text-gray-700 dark:text-gray-300 mb-2">{label}</AppParagraph>
+          )}
           <TextInput
             className={`border rounded-lg p-3 ${
               error ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'
-            } bg-white dark:bg-gray-800 text-gray-900 dark:text-white ${
+            } bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:border-sky-500 dark:focus:border-white ${
               isTextArea ? 'min-h-[100px]' : ''
             }`}
             placeholder={placeholder}

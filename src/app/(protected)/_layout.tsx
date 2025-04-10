@@ -10,21 +10,3 @@ export default function Layout() {
     />
   );
 }
-
-{
-  /* <Stack.Screen
-  name="onboarding"
-  options={{
-    headerTitle: '',
-    headerShown: false,
-  }}
-/>
-<Stack.Screen
-  name="home/index"
-  options={{
-    headerTitle: '',
-    headerShown: false,
-  }}
-/>
-</Stack> */
-}

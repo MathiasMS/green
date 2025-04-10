@@ -1,5 +1,6 @@
 import { TextInput, View, Text } from 'react-native';
 import { Control, Controller, FieldValues, Path } from 'react-hook-form';
+import { AppParagraph } from '../ui';
 
 interface EmailFormFieldProps<T extends FieldValues> {
   control: Control<T>;
@@ -30,12 +31,14 @@ const EmailFormField = <T extends FieldValues>({
       }}
       render={({ field: { onChange, onBlur, value }, fieldState: { error } }) => (
         <View className={`mb-4 ${className}`}>
-          {label && <Text className="text-gray-700 dark:text-gray-300 mb-1">{label}</Text>}
+          {label && (
+            <AppParagraph className="text-gray-700 dark:text-gray-300 mb-1">{label}</AppParagraph>
+          )}
           <TextInput
             value={value || ''}
             className={`border rounded-lg p-3 ${
               error ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'
-            } bg-white dark:bg-gray-800 text-gray-900 dark:text-white`}
+            } bg-white dark:bg-gray-900 text-gray-900 dark:text-white`}
             placeholder={placeholder}
             placeholderTextColor="#9CA3AF"
             onBlur={onBlur}

@@ -9,3 +9,5 @@ export { default as AppSubtitle } from './AppSubtitle';
 export { default as Divider } from './AppDivider';
 export { default as AppButtonContainer } from './AppButtonContainer';
 export { default as AppActivityIndicator } from './AppActivityIndicator';
+export { default as AppActivityIndicatorWithLayout } from './AppActivityIndicatorWithLayout';
+export { default as AppSelect } from './AppSelect';

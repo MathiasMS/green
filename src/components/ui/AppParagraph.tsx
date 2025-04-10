@@ -6,7 +6,7 @@ interface AppParagraphProps {
 }
 
 const AppParagraph = ({ children, className = '' }: AppParagraphProps) => (
-  <Text className={`text-base mb-2 dark:text-gray-200 ${className}`}>{children}</Text>
+  <Text className={`text-base dark:text-gray-200 ${className}`}>{children}</Text>
 );
 
 export default AppParagraph;

@@ -19,12 +19,12 @@ export default function CreateProfileScreen() {
     router.push(`/onboarding/${userType}`);
   };
 
-  const test = () => {
-    router.push({
-      pathname: '/onboarding/doctor/[doctorId]/specialization',
-      params: { doctorId: 'f18e66b6-4255-4546-8b28-6aca1e402095' },
-    });
-  };
+  // const test = () => {
+  //   router.push({
+  //     pathname: '/onboarding/doctor/[doctorId]/specialization',
+  //     params: { doctorId: 'f18e66b6-4255-4546-8b28-6aca1e402095' },
+  //   });
+  // };
 
   return (
     <AppLayout className="p-5 gap-5">
@@ -49,8 +49,7 @@ export default function CreateProfileScreen() {
             <AppSubheading>Soy un profesional</AppSubheading>
             <AppSubtitle>Quiero registrar una nueva cuenta para gestionar mis turnos</AppSubtitle>
           </View>
-          {/* <AppButton onPress={() => handleSelectUserType('doctor')} title="Registrar mi cuenta" /> */}
-          <AppButton onPress={() => test()} title="Test" />
+          <AppButton onPress={() => handleSelectUserType('doctor')} title="Registrar mi cuenta" />
         </View>
 
         <View className="items-center">

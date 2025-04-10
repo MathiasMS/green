@@ -7,6 +7,7 @@ interface AppButtonProps {
   appearance?: 'filled' | 'outline' | 'ghost';
   className?: string;
   loading?: boolean;
+  disabled?: boolean;
 }
 
 const AppButton = ({
@@ -16,6 +17,7 @@ const AppButton = ({
   appearance = 'filled',
   className = '',
   loading = false,
+  disabled = false,
 }: AppButtonProps) => {
   const variants = {
     primary: {
@@ -32,7 +34,9 @@ const AppButton = ({
 
   const buttonStyle = variants[variant][appearance];
 
-  const finalButtonStyle = loading ? 'bg-gray-300' : buttonStyle;
+  const isDisabled = loading || disabled;
+
+  const finalButtonStyle = isDisabled ? 'bg-gray-300' : buttonStyle;
 
   const style = `${finalButtonStyle} py-3 px-4 rounded-lg ${className}`;
 
@@ -43,10 +47,9 @@ const AppButton = ({
   };
 
   return (
-    <Pressable onPress={onPress} className={style} disabled={loading}>
+    <Pressable onPress={onPress} className={style} disabled={isDisabled}>
       <Text className={`${textColors[appearance]} text-center font-semibold`}>{title}</Text>
     </Pressable>
   );
 };
-
 export default AppButton;

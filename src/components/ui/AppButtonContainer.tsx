@@ -10,7 +10,7 @@ const AppButtonContainer = ({ children, className }: AppButtonContainerProps) =>
 
   return (
     <View
-      className={`flex-row p-5 ${paddingBottom} bg-transparent border-t border-gray-200 ${className}`}
+      className={`flex-row p-5 ${paddingBottom} bg-transparent border-t border-gray-200 dark:border-gray-600 ${className}`}
     >
       {children}
     </View>

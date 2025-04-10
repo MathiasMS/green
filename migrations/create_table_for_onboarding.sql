@@ -76,6 +76,28 @@ CREATE TABLE office_doctor_availability (
   "reasonOfUnavailability" VARCHAR(500)
 );
 
+CREATE TABLE appointments (
+  "id" UUID PRIMARY KEY,
+  "patientId" UUID NOT NULL REFERENCES patients("id"),
+  "officeId" UUID NOT NULL REFERENCES offices("id"),
+  "probableStartTime" TIMESTAMPTZ NOT NULL,
+  "actualEndTime" TIMESTAMPTZ,
+  "appointmentStatusId" TEXT, -- (actived, cancelled, completed)
+  "appointmentTakenDate" DATE NOT NULL,
+  "appBookingChannelId" TEXT,
+  "createdOn" TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE office_doctor_exceptions (
+  "id" UUID PRIMARY KEY,
+  "officeId" UUID REFERENCES offices("id") ON DELETE CASCADE,
+  "startDateTime" TIMESTAMPTZ NOT NULL,
+  "endDateTime" TIMESTAMPTZ NOT NULL,
+  "isAvailable" BOOLEAN DEFAULT FALSE,
+  "reason" TEXT
+);
+
 
 -- 2. Enable RLS
 alter table profiles enable row level security;

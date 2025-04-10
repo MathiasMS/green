@@ -1,4 +1,4 @@
-import { getAppBackgroundColor, getAppTextColor } from '@/src/constants/colors';
+import { getAppBackgroundColor, getHeaderTintColor } from '@/src/constants/colors';
 import { Redirect, Stack } from 'expo-router';
 import { useColorScheme } from 'nativewind';
 import { useAuth } from '../../hooks/useAuth';
@@ -15,41 +15,20 @@ export default function Layout() {
   }
 
   const backgroundColor = getAppBackgroundColor(colorScheme);
-  const textColor = getAppTextColor(colorScheme);
+  const headerTintColor = getHeaderTintColor(colorScheme);
 
   console.log('Auth Layout - No session, showing auth screens');
   return (
-    <Stack>
-      <Stack.Screen
-        name="index"
-        options={{
-          headerShown: false,
-          headerTitle: '',
-          headerTintColor: textColor,
-        }}
-      />
-      <Stack.Screen
-        name="login"
-        options={{
-          headerTitle: '',
-          headerShadowVisible: false,
-          headerTintColor: textColor,
-          headerStyle: {
-            backgroundColor: backgroundColor,
-          },
-        }}
-      />
-      <Stack.Screen
-        name="sign-up"
-        options={{
-          headerTitle: '',
-          headerShadowVisible: false,
-          headerTintColor: textColor,
-          headerStyle: {
-            backgroundColor: backgroundColor,
-          },
-        }}
-      />
-    </Stack>
+    <Stack
+      screenOptions={{
+        headerShown: false,
+        headerTitle: '',
+        headerBackTitle: 'Volver',
+        headerTintColor,
+        headerStyle: {
+          backgroundColor,
+        },
+      }}
+    />
   );
 }
